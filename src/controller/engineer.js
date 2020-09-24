@@ -5,8 +5,7 @@ const{getAllEngineerModel,
   updateEngineerModel,
   getEngineerModelByParams,
   sortEngineerModelByName} = require('../models/engineer')
-const baseDate = require('../config/date');
-const { getAll } = require('./recruiter');
+const baseDate = require('../../config/date');
 
 module.exports = {
   getAll: (req, res) => {
