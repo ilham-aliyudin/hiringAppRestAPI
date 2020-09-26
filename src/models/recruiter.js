@@ -33,9 +33,5 @@ module.exports = {
       if (err) throw err
       cb(result)
     })
-  },
-
-  patchREcruiterModel: (id, cb) => {
-    db.query(``)
   }
 }
