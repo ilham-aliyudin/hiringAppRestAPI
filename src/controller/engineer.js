@@ -3,13 +3,33 @@ const{getAllEngineerModel,
   createEgineerModel, 
   deleteEngineerModel, 
   updateEngineerModel,
-  getEngineerModelByParams,
-  sortEngineerModelByName} = require('../models/engineer')
+  getEngineerModelByParams} = require('../models/engineer')
 const baseDate = require('../../config/date');
 
 module.exports = {
   getAll: (req, res) => {
-    getAllEngineerModel(result => {
+    let { limit, page, orderBy, orderFormat } = req.query
+    if (!limit) {
+      limit = 4
+    }
+    if (!page) {
+      page = 1
+    }
+    page = (page - 1)*limit
+
+    if (!orderBy) {
+      orderBy = 'nama'
+    } else {
+      orderBy = req.query.orderBy
+    }
+
+    if (!orderFormat) {
+      orderFormat = 'ASC'
+    } else {
+      orderFormat = req.query.orderFormat
+    }
+    
+    getAllEngineerModel(orderFormat, orderBy, limit, page, result => {
       if(result.length) {
         res.send({data: result});
       }else{

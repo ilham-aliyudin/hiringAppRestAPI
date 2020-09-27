@@ -48,7 +48,7 @@ module.exports = {
             user_role,
             user_status
           }
-          const token = jwt.sign(payload, process.env.JWT_KEY, {expiresIn: '1h'})
+          const token = jwt.sign(payload, process.env.JWT_KEY, {expiresIn: "0.5h"})
           payload = {...payload, token}
           res.status(200).send({
             status: 'true',

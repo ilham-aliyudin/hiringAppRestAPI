@@ -1,8 +1,8 @@
 const db = require('../../config/db')
 
 module.exports = {
-  getAllEngineerModel: (cb) => {
-    db.query(`SELECT * FROM engineer`, (err, result) => {
+  getAllEngineerModel: ( orderFormat, order, limit, page, cb) => {
+    db.query(`SELECT * FROM engineer ORDER BY ${order} ${orderFormat} LIMIT ${limit} OFFSET ${page}`, (err, result) => {
       cb(result)
     })
   },

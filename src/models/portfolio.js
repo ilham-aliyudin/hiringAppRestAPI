@@ -1,21 +1,22 @@
 const db = require('../../config/db')
 
+
 module.exports = {
-  postSkillModel: (setData) => {
+  postPortfolioModel: (setData) => {
     return new Promise((resolve, reject) => {
-      db.query('INSERT INTO skill SET ?', setData, (err, result) => {
-        if (!err) {
+      const sqlQuery = 'INSERT INTO portfolio SET ?'
+      db.query(sqlQuery, setData, (err, result) => {
+        if(!err) {
           resolve(result)
-        } else {
-          reject(new Error(err))
         }
+        reject(new Error(err))
       })
     })
   },
 
-  getAllSkillModel: () => {
+  getAllPortfolioModel: () => {
     return new Promise((resolve, reject) => {
-      const sqlQuery = 'SELECT * FROM skill'
+      const sqlQuery = 'SELECT * FROM portfolio'
       db.query(sqlQuery, (err, result) => {
         if(!err) {
           resolve(result)
