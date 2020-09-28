@@ -12,10 +12,12 @@ module.exports = {
     if (!limit) {
       limit = 4
     }
+
     if (!page) {
       page = 1
+    } else {
+      page = (page - 1)*limit
     }
-    page = (page - 1)*limit
 
     if (!orderBy) {
       orderBy = 'nama'

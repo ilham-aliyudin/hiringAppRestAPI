@@ -4,5 +4,7 @@ const router = express.Router();
 
 router.post('/skill', skillController.postSkill)
 router.get('/skills', skillController.getAllSkill)
+router.put('/skill/:id', skillController.updateSkill)
+router.delete('/skill/:id', skillController.deleteSkill)
 
 module.exports = router

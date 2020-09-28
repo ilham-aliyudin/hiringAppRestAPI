@@ -24,5 +24,29 @@ module.exports = {
         reject(new Error(err))
       })
     })
+  },
+
+  deletePortfolioModel: (id) => {
+    return new Promise((resolve, reject) => {
+      const sqlQuery = `DELETE FROM portfolio WHERE id = ${id}`
+      db.query(sqlQuery, (err, result) => {
+        if(!err) {
+          resolve(result)
+        }
+        reject(new Error(err))
+      })
+    })
+  },
+
+  updatePortfolioModel: (setData, id) => {
+    return new Promise((resolve, reject) => {
+      const sqlQuery = `UPDATE portfolio SET ? WHERE id = ${id}`
+      db.query(sqlQuery, setData, (err, result) => {
+        if(!err) {
+          resolve(result)
+        }
+        reject(new Error(err))
+      })
+    })
   }
 }

@@ -24,5 +24,29 @@ module.exports = {
         reject(new Error(err))
       })
     })
+  },
+
+  deleteExperienceModel: (id) => {
+    return new Promise((resolve, reject) => {
+      const sqlQuery = `DELETE FROM experience WHERE id = ${id}`
+      db.query(sqlQuery, (err, result) => {
+        if(!err) {
+          resolve(result)
+        }
+        reject(new Error(err))
+      })
+    })
+  },
+
+  updateExperienceModel: (setData, id) => {
+    return new Promise((resolve, reject) => {
+      const sqlQuery = `UPDATE experience SET ? WHERE id = ${id}`
+      db.query(sqlQuery, setData, (err, result) => {
+        if(!err) {
+          resolve(result)
+        }
+        reject(new Error(err))
+      })
+    })
   }
 }
