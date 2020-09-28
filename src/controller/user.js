@@ -69,7 +69,7 @@ module.exports = {
     } catch (error) {
       res.status(500).send({
         status: `false`,
-        message: `Data gagal ditambahkan`
+        message: error.message
       });
     }
   }
