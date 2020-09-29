@@ -28,8 +28,7 @@ module.exports = {
       const result = await getAllPortfolioModel()
       if(result.length) {
         res.status(200).send({
-          status: true,
-          data: result
+          result
         });
       }
       res.status(404).send({
