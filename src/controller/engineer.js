@@ -10,7 +10,7 @@ module.exports = {
   getAll: (req, res) => {
     let { limit, page, orderBy, orderFormat } = req.query
     if (!limit) {
-      limit = 4
+      limit = 20
     }
 
     if (!page) {
@@ -20,7 +20,7 @@ module.exports = {
     }
 
     if (!orderBy) {
-      orderBy = 'nama'
+      orderBy = 'id'
     } else {
       orderBy = req.query.orderBy
     }
