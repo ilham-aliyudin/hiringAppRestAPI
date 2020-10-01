@@ -3,7 +3,7 @@ const engineerController = require('../controller/engineer')
 const router = express.Router();
 const auth = require('../../middleware/auth')
 
-router.get('/engineers', auth.authorization, engineerController.getAll)
+router.get('/engineers', engineerController.getAll)
 router.get('/engineer/:id', auth.authorization, engineerController.getEngineerById)
 router.get('/engineer',auth.authorization, engineerController.getEngineerByParam )
 router.post('/engineer/register', auth.authorization, engineerController.crateEngineer)

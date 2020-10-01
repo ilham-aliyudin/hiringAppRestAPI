@@ -33,7 +33,7 @@ module.exports = {
     
     getAllEngineerModel(orderFormat, orderBy, limit, page, result => {
       if(result.length) {
-        res.send({data: result});
+         res.json(result);
       }else{
         res.send({message: `Data tidak ditemukan`});
       }  
@@ -44,7 +44,7 @@ module.exports = {
     const id = req.params.id
     getEngineerModelById(id, result => {
       if(result.length){
-        res.send({data: result}); 
+        res.send(result); 
       } else {
         res.send({message: `Id tidak ditemukan`});
       }
