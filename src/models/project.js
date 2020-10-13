@@ -15,7 +15,7 @@ module.exports = {
 
   getAllProjectModel: () => {
     return new Promise((resolve, reject) => {
-      const query = 'SELECT project_name, description, nama, bidang, lokasi, deadline FROM project JOIN recruiter ON id_recruiter = recruiter.id'
+      const query = 'SELECT id_recruiter, project_name, description, lokasi, deadline, image FROM project JOIN recruiter ON id_recruiter = recruiter.id'
       db.query(query, (err, result) => {
         if(!err) {
           resolve(result)

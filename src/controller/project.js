@@ -8,7 +8,7 @@ module.exports = {
         project_name,
         description,
         deadline,
-        image, 
+        image: req.file === undefined ? '' : req.file.filename, 
         id_recruiter
       }
       const result = await createProjectModel(setData)
