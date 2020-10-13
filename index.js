@@ -6,6 +6,7 @@ const routeUser = require('./src/routes/user')
 const routeSkill = require('./src/routes/skill')
 const routePortfolio = require('./src/routes/portfolio')
 const routeExperience = require('./src/routes/experience')
+const routeProject = require('./src/routes/project')
 const cors = require('cors')
 const app = express()
 require('dotenv').config()
@@ -20,7 +21,7 @@ app.use((req, res, next) => {
   next()
 });
 
-app.use('/hire', routeRecruiter, routeEngineer, routeUser, routeSkill, routePortfolio, routeExperience);
+app.use('/hire', routeRecruiter, routeEngineer, routeUser, routeSkill, routePortfolio, routeExperience, routeProject);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server started on port`);
